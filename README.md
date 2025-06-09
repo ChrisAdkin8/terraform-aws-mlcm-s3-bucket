@@ -16,7 +16,7 @@ including:
 
 ```hcl
 module "s3_bucket" {
-  source      = "app.terraform.io/YOUR_ORG_NAME/s3-bucket/aws"
+  source      = "app.terraform.io/YOUR_ORG_NAME/simple-s3-bucket/aws"
   bucket_name = "my-unique-bucket-name"
   tags = {
     Environment = "dev"
@@ -28,7 +28,7 @@ module "s3_bucket" {
 
 ```hcl
 module "s3_bucket" {
-  source      = "YOUR_GITHUB_ACCOUNT_NAME/s3-bucket/aws"
+  source      = "YOUR_GITHUB_ACCOUNT_NAME/simple-s3-bucket/aws"
   bucket_name = "my-unique-bucket-name"
   tags = {
     Environment = "dev"
