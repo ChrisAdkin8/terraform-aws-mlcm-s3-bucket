@@ -2,6 +2,14 @@
 
 A simple Terraform module to create an AWS S3 bucket.
 
+The initial aim of this repo is to provide something incredibly simple to demonstrate module life cycle management with a private module registry,
+including:
+
+- Using of sentinel policies such that only non-root modules in the private registry can be used 
+- Module deprecation
+- Module recovation
+- Module usage observability
+
 ## Usage
 
 ```hcl
@@ -27,3 +35,13 @@ module "s3_bucket" {
 |--------------|-------------------------|
 | bucket_name  | The bucket name         |
 | bucket_arn   | The ARN of the bucket   |
+
+## Observability
+
+Module usage can be observed either via the HCP Terraform explorer, or by scraping the explorer endpoint:
+```
+curl -s \
+  --header "Authorization: Bearer $TFC_TOKEN" \
+  "https://app.terraform.io/api/v2/organizations/$ORG_NAME/explorer?type=modules" \
+  | jq
+```
