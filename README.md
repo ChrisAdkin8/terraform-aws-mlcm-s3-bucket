@@ -12,9 +12,23 @@ including:
 
 ## Usage
 
+### Invoking The Module from A HCP Terraform Private Registry 
+
 ```hcl
 module "s3_bucket" {
   source      = "app.terraform.io/YOUR_ORG_NAME/s3-bucket/aws"
+  bucket_name = "my-unique-bucket-name"
+  tags = {
+    Environment = "dev"
+  }
+}
+```
+
+### Invoking The Module from The Public Registry 
+
+```hcl
+module "s3_bucket" {
+  source      = "YOUR_GITHUB_ACCOUNT_NAME/s3-bucket/aws"
   bucket_name = "my-unique-bucket-name"
   tags = {
     Environment = "dev"
